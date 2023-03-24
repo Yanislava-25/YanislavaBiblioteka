@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Biblioteka.Data.Author>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>СПИСЪК с АВТОРИ</h1>
+
+<p>
+    <a class = "btn btn-link" asp-action="Create">ДОБАВИ НОВ</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirsrName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Biography)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegisterOn)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirsrName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                    @Html.TextAreaFor(modelItem => item.Biography, new { @class = "form-control" })
+                @*@Html.DisplayFor(modelItem => item.Biography)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegisterOn)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

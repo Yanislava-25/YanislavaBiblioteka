@@ -4,16 +4,18 @@ using Biblioteka.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Biblioteka.Data.Migrations
+namespace Biblioteka.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230324131248_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,12 +63,12 @@ namespace Biblioteka.Data.Migrations
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
-                    b.Property<string>("GenreId")
+                    b.Property<int>("GenreId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImageURL")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("GenresId")
-                        .HasColumnType("int");
 
                     b.Property<int>("PressId")
                         .HasColumnType("int");
@@ -85,7 +87,7 @@ namespace Biblioteka.Data.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.HasIndex("GenresId");
+                    b.HasIndex("GenreId");
 
                     b.HasIndex("PressId");
 
@@ -154,6 +156,10 @@ namespace Biblioteka.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("LogoURL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -216,6 +222,10 @@ namespace Biblioteka.Data.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Photo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("RegisterOn")
                         .HasColumnType("datetime2");
@@ -390,7 +400,7 @@ namespace Biblioteka.Data.Migrations
 
                     b.HasOne("Biblioteka.Data.Genre", "Genres")
                         .WithMany("Books")
-                        .HasForeignKey("GenresId")
+                        .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

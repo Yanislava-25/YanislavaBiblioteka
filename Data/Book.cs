@@ -13,9 +13,10 @@
         public Press Presses { get; set; }       
         
         //M:1
-        public string GenreId { get; set; }
-        public Genre Genres { get; set; }   
+        public int GenreId { get; set; }
+        public Genre Genres { get; set; }
 
+        public string ImageURL { get; set; }
         public int YearPublish { get; set; }    
 
         public DateTime RegisterOn { get; set; }

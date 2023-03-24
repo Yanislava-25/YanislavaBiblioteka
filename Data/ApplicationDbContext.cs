@@ -14,6 +14,6 @@ namespace Biblioteka.Data
         public DbSet<Card> Cards { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Press> Presses { get; set; }
-        //public DbSet<Title> Titles { get; set; }
+        
     }
 }
