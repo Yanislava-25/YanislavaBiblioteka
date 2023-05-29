@@ -2,23 +2,16 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
 using Biblioteka.Data;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.Extensions.Logging;
 
 namespace Biblioteka.Areas.Identity.Pages.Account
 {
@@ -72,16 +65,16 @@ namespace Biblioteka.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [Display(Name = "User Name")]
+            [Display(Name = "Псевдоним")]
             public string UserName { get; set; }
 
             [Required]
             [EmailAddress]
-            [Display(Name = "Email")]
+            [Display(Name = "Имайл")]
             public string Email { get; set; }
 
             [Required]
-            [Display(Name = "Telephon Number")]
+            [Display(Name = "Телефонен номер")]
             public string PhoneNumber { get; set; }
 
             [Required]
@@ -103,7 +96,7 @@ namespace Biblioteka.Areas.Identity.Pages.Account
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Парола")]
             public string Password { get; set; }
 
             /// <summary>
@@ -111,8 +104,8 @@ namespace Biblioteka.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Повтори Паролата")]
+            [Compare("Password", ErrorMessage = "Двете пароли не съответстват.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -132,10 +125,10 @@ namespace Biblioteka.Areas.Identity.Pages.Account
                 //var user = CreateUser();
                 Reader user = new Reader();
                 user.UserName = Input.UserName;
-                user.FirstName=Input.FirstName;
-                user.MiddleName=Input.MiddleName;   
-                user.LastName=Input.LastName;
-                user.Email=Input.Email;
+                user.FirstName = Input.FirstName;
+                user.MiddleName = Input.MiddleName;
+                user.LastName = Input.LastName;
+                user.Email = Input.Email;
                 user.PhoneNumber = Input.PhoneNumber;
                 user.Photo = Input.Photos;
 

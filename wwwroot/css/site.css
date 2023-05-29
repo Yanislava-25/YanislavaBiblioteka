@@ -1,18 +1,48 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+.col-md-41 {
+    border-radius: 5px;
+    background-color: aliceblue;
+    padding: 20px;
+    width: 500px;
+    font-family: 'Amatic SC', cursive;
+    margin-left: 450px;
+    opacity: 0.8;
+}
+
+.col-md-42 {
+    border-radius: 5px;
+    background-color: aliceblue;
+    padding: 20px;
+    width: 500px;
+    font-family: 'Amatic SC', cursive;
+    margin-left: 450px;
+    opacity: 0.8;
+}
+
+.registraciq h1 {
+    margin-left: 575px;
+    font-family: 'Amatic SC', cursive;
+}
+
+.vhod h1 {
+    margin-left: 642px;
+    font-family: 'Amatic SC', cursive;
 }
